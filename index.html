@@ -85,6 +85,11 @@
 			width: 90%;
 			max-width: 750px;
 			margin: 20px auto;
+
+			/* FIX: Completely erases the blurry background templates shadow */
+			box-shadow: none !important;
+			background: none !important;
+			background-image: none !important;
 		}
 
 		.slider-wrapper {
@@ -100,16 +105,31 @@
 
 		/* THE SWIPE CARD CONTAINER */
 		.swipe-card {
-			flex: 0 0 100%; /* Individual game screens fill the box frame fully */
-			border: 5px solid #ffffff; /* Thick crisp white arcade border */
+			flex: 0 0 100%;
+			border: 5px solid #ffffff;
 			border-radius: 12px;
 			overflow: hidden;
 			display: flex;
-			flex-direction: column; /* Forces the text content directly underneath the image */
+			flex-direction: column;
 			position: relative;
-			background-color: rgba(0, 0, 0, 0.2);
-			box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+			background-color: #d0bfab;
 			box-sizing: border-box;
+
+			/* FIX 1: Wipes out the shadow on the card itself */
+			box-shadow: none !important;
+		}
+
+		.slider-wrapper {
+			display: flex;
+			flex-direction: row;
+			width: 100%;
+			overflow: hidden;
+			scroll-behavior: smooth;
+			gap: 20px;
+
+			/* FIX 2: Clears any template padding that might be exposing hidden layers */
+			padding: 0 !important;
+			box-shadow: none !important;
 		}
 
 		/* IMAGE PROPERTIES CONTAINER */
@@ -133,9 +153,11 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-			border: none !important; /* Clears any harsh line cuts */
-			backdrop-filter: none !important; /* Turns off the old glass blur completely */
+			border: none !important;
+			backdrop-filter: none !important;
 			-webkit-backdrop-filter: none !important;
+
+			flex-grow: 1; /* FIX: Forces the grey block to stretch and hug the bottom white outline perfectly */
 		}
 		
 		.game-text-wrapper {
@@ -331,7 +353,7 @@
 			<div class="text-content">
 				<div class="game-text-wrapper">
 					<h3>Project Classified</h3>
-					<p>We are officially building our very first game! We can’t share any details just yet, but we promise we won't be holding this one in for too long.</p>
+					<p>We are officially building our very first game! We can’t share any details just yet, but we promise we won't be holding this one in for too long.ggggggggggggggggggggggggggggggggggg</p>
 				</div>
 
 				<!-- SWAP THIS NEW BLOCK IN RIGHT HERE -->
